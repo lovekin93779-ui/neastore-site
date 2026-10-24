@@ -1,140 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NEAStore_ | Online Store</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080b12">
+<title>NEAStore_ | Digital Store</title>
 <style>
-:root{--bg:#070b14;--panel:#0d1524;--line:#22334c;--blue:#64a7ff;--muted:#aab7cc;--white:#f4f7ff}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:var(--bg);color:var(--white);line-height:1.55}
-header{display:flex;justify-content:space-between;align-items:center;padding:18px 6%;background:#0d1424;border-bottom:1px solid var(--line)}
-.logo{font-size:24px;font-weight:800;color:var(--blue)}nav{display:flex;gap:16px;flex-wrap:wrap}nav a{color:#d8e6fa;text-decoration:none;font-size:13px}
-.hero{text-align:center;padding:62px 20px;background:radial-gradient(ellipse at top,#173763,#070b14 72%)}
-.pill{display:inline-block;border:1px solid #31598b;border-radius:30px;padding:5px 12px;color:#9bcaff;font-size:12px;margin-bottom:16px}
-h1{font-size:clamp(34px,7vw,56px);line-height:1.1;margin-bottom:15px}h1 span{color:var(--blue)}
-.hero p{max-width:550px;margin:auto;color:var(--muted)}
-.container{width:min(1080px,92%);margin:35px auto}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:20px}
-.section-head p{font-size:13px;color:var(--muted)}
-.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
-input,select{background:#10192a;border:1px solid var(--line);border-radius:9px;color:white;padding:12px;font-size:14px}
-input{flex:1;min-width:180px}select{min-width:155px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:18px}
-.card{background:var(--panel);border:1px solid #1e2d43;border-radius:15px;overflow:hidden;transition:.2s}
-.card:hover{transform:translateY(-3px);border-color:#4e8edc}
-.card img{display:block;width:100%;height:205px;object-fit:cover;background:#15233a}
-.card-body{padding:17px}.category{font-size:11px;color:#8bbdff;text-transform:uppercase;letter-spacing:1px}
-.card h3{margin:5px 0}.desc{font-size:13px;color:var(--muted);min-height:40px}
-.price{font-size:24px;font-weight:800;color:#83baff;margin:12px 0}
-.btn{display:block;width:100%;text-align:center;border:0;border-radius:9px;padding:12px;background:#347fe0;color:white;font-weight:700;text-decoration:none;cursor:pointer;font-size:14px}
-.btn:hover{background:#4a91f0}.btn.secondary{background:#172943;border:1px solid #2b4669}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:22px}
-.panel p{color:var(--muted);font-size:13px;margin-top:7px}
-.wallet{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
-.balance{font-size:34px;font-weight:800;color:#83baff;margin:5px 0 12px}
-.history{margin-top:15px;border-top:1px solid var(--line);padding-top:12px;font-size:13px;color:var(--muted)}
-.contact{text-align:center;background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:28px 20px;margin:38px 0}
-.contact p{color:var(--muted);margin:8px 0 18px}
-footer{text-align:center;color:#73829a;border-top:1px solid #1b2940;padding:23px;font-size:12px}
-[hidden]{display:none!important}
-@media(max-width:620px){.wallet{grid-template-columns:1fr}header{padding:16px 4%;align-items:flex-start;gap:12px;flex-direction:column}.hero{padding:50px 18px}}
-</style>
-</head>
+:root{--bg:#080b12;--panel:#101622;--panel2:#151e2d;--line:#253247;--text:#f5f7fb;--muted:#9aa8bd;--cyan:#66e0d1;--warn:#f6cb78}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0%,#14233b 0,transparent 34%),var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}a{color:inherit}button,input{font:inherit}.wrap{width:min(1120px,92%);margin:auto}.top{padding:18px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:14px}.brand{font-weight:900;letter-spacing:.5px;font-size:1.25rem}.brand span{color:var(--cyan)}.tag,.muted{color:var(--muted)}.tag{font-size:.85rem}.pill{border:1px solid var(--line);padding:7px 11px;border-radius:999px;color:var(--muted);font-size:.82rem}
+.hero{padding:54px 0 30px;display:grid;grid-template-columns:1.35fr .65fr;gap:24px;align-items:center}.eyebrow{color:var(--cyan);font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:.75rem}.hero h1{font-size:clamp(2.2rem,6vw,4.5rem);line-height:1.02;letter-spacing:-2px;margin:12px 0}.hero p{color:var(--muted);max-width:600px}.heroCard{padding:24px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#17253a,#0e1420);box-shadow:0 20px 60px #0005}.symbol{font-size:2.5rem;color:var(--cyan)}.heroCard strong{font-size:1.2rem;display:block;margin:8px 0}.heroCard small{color:var(--muted)}section{padding:25px 0}.sectionHead{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:16px}.sectionHead h2{margin:0;font-size:1.5rem}.sectionHead p{margin:4px 0 0;color:var(--muted);font-size:.9rem}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.item{border:1px solid var(--line);background:var(--panel);border-radius:17px;padding:19px;display:flex;flex-direction:column;gap:10px;min-height:220px}.item .icon{font-size:1.9rem}.item h3{margin:0;font-size:1.05rem}.item p{margin:0;color:var(--muted);font-size:.9rem;flex:1}.price{font-weight:850;font-size:1.2rem}.btn{border:0;border-radius:11px;padding:11px 15px;font-weight:800;cursor:pointer;background:var(--cyan);color:#061311;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn.secondary{background:var(--panel2);border:1px solid var(--line);color:var(--text)}.btn:focus,input:focus{outline:2px solid #78aaff;outline-offset:2px}.actions{display:flex;gap:9px;flex-wrap:wrap}.payLayout{display:grid;grid-template-columns:1fr 1fr;gap:16px}.panel{border:1px solid var(--line);background:var(--panel);border-radius:18px;padding:21px}.panel h3{margin-top:0}.address{overflow-wrap:anywhere;background:#080d16;border:1px solid var(--line);padding:12px;border-radius:10px;font:.85rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}.notice{border-left:3px solid var(--warn);padding:10px 12px;background:#241f14;color:#f4e2b9;border-radius:5px;font-size:.88rem}.field{display:grid;gap:6px;margin:12px 0}.field label{color:var(--muted);font-size:.88rem}.field input{width:100%;padding:11px 12px;border-radius:10px;background:#080d16;color:var(--text);border:1px solid var(--line)}footer{margin-top:30px;padding:24px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}.small{font-size:.8rem;color:var(--muted)}@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:35px}.grid{grid-template-columns:1fr 1fr}.payLayout{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}}@media(max-width:480px){.grid{grid-template-columns:1fr}.hero h1{letter-spacing:-1px}}
+</style></head>
 <body>
-<header>
-  <div class="logo">NEAStore_</div>
-  <nav><a href="#clothing">Clothing</a><a href="#card-services">Card Services</a><a href="#wallet">Wallet</a><a href="#contact">Contact</a></nav>
-</header>
-<section class="hero">
-  <div class="pill">✦ WELCOME TO NEASTORE_</div>
-  <h1>Shop Smart.<br><span>Look Different.</span></h1>
-  <p>Explore streetwear, everyday essentials and store updates in one place.</p>
-</section>
-<main class="container">
-  <section id="clothing">
-    <div class="section-head"><div><h2>Clothing & Accessories</h2><p>Fresh picks for your everyday style.</p></div></div>
-    <div class="toolbar">
-      <input id="search" type="search" placeholder="Search clothing..." aria-label="Search clothing">
-      <select id="category" aria-label="Filter category"><option value="all">All categories</option><option value="tops">T-shirts & hoodies</option><option value="shoes">Sneakers</option><option value="accessories">Accessories</option></select>
-      <select id="sort" aria-label="Sort products"><option value="featured">Featured</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option></select>
-    </div>
-    <div class="grid" id="products">
-      <article class="card" data-price="24" data-category="tops" data-name="Classic Cotton T-Shirt">
-        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" alt="Cotton T-shirt">
-        <div class="card-body"><div class="category">T-shirts</div><h3>Classic Cotton T-Shirt</h3><p class="desc">A simple everyday wardrobe essential.</p><div class="price">$24.00</div><button class="btn" onclick="showMessage('Item details')">View item</button></div>
-      </article>
-      <article class="card" data-price="48" data-category="tops" data-name="Premium Streetwear Hoodie">
-        <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80" alt="Streetwear hoodie">
-        <div class="card-body"><div class="category">Hoodies</div><h3>Premium Streetwear Hoodie</h3><p class="desc">A comfortable layer with a relaxed fit.</p><div class="price">$48.00</div><button class="btn" onclick="showMessage('Item details')">View item</button></div>
-      </article>
-      <article class="card" data-price="72" data-category="shoes" data-name="Classic Everyday Sneakers">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" alt="Red sneaker">
-        <div class="card-body"><div class="category">Sneakers</div><h3>Classic Everyday Sneakers</h3><p class="desc">Casual footwear for daily wear.</p><div class="price">$72.00</div><button class="btn" onclick="showMessage('Item details')">View item</button></div>
-      </article>
-      <article class="card" data-price="18" data-category="accessories" data-name="Minimal Baseball Cap">
-        <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=800&q=80" alt="Baseball cap">
-        <div class="card-body"><div class="category">Accessories</div><h3>Minimal Baseball Cap</h3><p class="desc">An easy finishing touch for your outfit.</p><div class="price">$18.00</div><button class="btn" onclick="showMessage('Item details')">View item</button></div>
-      </article>
-      <article class="card" data-price="36" data-category="tops" data-name="Relaxed Fit Sweatshirt">
-        <img src="https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=800&q=80" alt="Casual sweatshirt">
-        <div class="card-body"><div class="category">Sweatshirts</div><h3>Relaxed Fit Sweatshirt</h3><p class="desc">A versatile layer for everyday outfits.</p><div class="price">$36.00</div><button class="btn" onclick="showMessage('Item details')">View item</button></div>
-      </article>
-      <article class="card" data-price="55" data-category="shoes" data-name="Urban Street Sneakers">
-        <img src="https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=800&q=80" alt="Street sneakers">
-        <div class="card-body"><div class="category">Sneakers</div><h3>Urban Street Sneakers</h3><p class="desc">Everyday sneakers with a streetwear feel.</p><div class="price">$55.00</div><button class="btn" onclick="showMessage('Item details')">View item</button></div>
-      </article>
-    </div>
-  </section>
-
-  <section id="card-services" style="margin-top:42px">
-    <div class="section-head"><div><h2>Card & Payment Services</h2><p>Information about legitimate, authorized financial products.</p></div></div>
-    <div class="info-grid">
-      <div class="panel"><h3>Prepaid Card Information</h3><p>Learn about issuer-approved prepaid cards, fees, eligibility and terms. Availability depends on the authorized provider.</p></div>
-      <div class="panel"><h3>Payment Support</h3><p>Questions about a payment or an authorized card product? Contact the store team for help.</p></div>
-      <div class="panel"><h3>Secure Payments</h3><p>Use only cards and financial accounts you own or are authorized to use. Never share full card details or security codes in chat.</p></div>
-    </div>
-  </section>
-
-  <section class="wallet" id="wallet">
-    <div class="panel">
-      <h2>My Wallet</h2><div class="balance">$0.00</div>
-      <p>Store wallet preview · Shopping only</p>
-      <button class="btn" style="margin-top:15px" onclick="showMessage('Wallet funding')">Fund wallet</button>
-    </div>
-    <div class="panel">
-      <h2>Transaction History</h2><p>Your purchases and wallet activity will appear here when account features are configured.</p>
-      <div class="history">No transactions yet.</div>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <h2>Contact NEAStore_</h2>
-    <p>Join our Telegram group for store updates and customer support.</p>
-    <a class="btn" href="https://t.me/+wQmRbVzrmqFkYWE0" target="_blank" rel="noopener noreferrer">Join Our Telegram Group ↗</a>
-  </section>
-</main>
-<footer>© <span id="year"></span> NEAStore_ · All rights reserved.</footer>
+<header class="wrap top"><div><div class="brand">NEA<span>Store_</span></div><div class="tag">Digital goods & authorized services</div></div><div class="pill">USD pricing · BTC option</div></header>
+<main class="wrap">
+<section class="hero"><div><div class="eyebrow">Simple · Secure · Transparent</div><h1>Find your next<br>digital essential.</h1><p>A clean storefront for legitimate digital products and authorized services. Choose an item to see checkout instructions and payment options.</p><div class="actions"><a class="btn" href="#catalog">Browse catalogue</a><a class="btn secondary" href="#payments">Payment options</a></div></div><div class="heroCard"><div class="symbol">₿</div><strong>Bitcoin payment option</strong><small>Send only the exact amount shown at checkout. Orders require transaction verification before fulfilment.</small></div></section>
+<section id="catalog"><div class="sectionHead"><div><h2>Store catalogue</h2><p>Example items — replace these with products you are authorized to sell.</p></div><span class="pill">Prices in USD</span></div><div class="grid">
+<article class="item"><div class="icon">📘</div><h3>Digital Study Guide</h3><p>A downloadable learning guide or original digital publication.</p><div class="price">$9.00</div><button class="btn" onclick="chooseItem('Digital Study Guide',9)">Choose item</button></article>
+<article class="item"><div class="icon">🎨</div><h3>Design Template Pack</h3><p>Original templates, graphics, or assets you have rights to distribute.</p><div class="price">$15.00</div><button class="btn" onclick="chooseItem('Design Template Pack',15)">Choose item</button></article>
+<article class="item"><div class="icon">🧩</div><h3>Authorized Digital Service</h3><p>A lawful service or digital product supplied by its rightful owner.</p><div class="price">$20.00</div><button class="btn" onclick="chooseItem('Authorized Digital Service',20)">Choose item</button></article>
+</div></section>
+<section id="payments"><div class="sectionHead"><div><h2>Checkout & payments</h2><p>BTC address provided by the store owner. No card details are collected here.</p></div></div><div class="payLayout">
+<div class="panel"><h3>Your order</h3><div class="field"><label for="product">Selected item</label><input id="product" value="Digital Study Guide" readonly></div><div class="field"><label for="amount">Amount (USD)</label><input id="amount" value="9.00" readonly></div><div class="field"><label for="txid">Bitcoin transaction ID (after sending)</label><input id="txid" placeholder="Paste transaction ID (optional)"></div><div class="actions"><button class="btn" onclick="copyAddress()">Copy BTC address</button><button class="btn secondary" onclick="copyOrder()">Copy order details</button></div><p id="feedback" class="small" aria-live="polite"></p></div>
+<div class="panel"><h3>Bitcoin receiving address</h3><div class="address" id="btc">bc1qksl6yyus0q8ykglsrpeld52xjhvtlj95ranylc</div><div class="actions" style="margin-top:12px"><button class="btn secondary" onclick="copyAddress()">Copy address</button><a class="btn secondary" href="https://mempool.space/" target="_blank" rel="noopener noreferrer">Open block explorer</a></div><p class="small">Confirm this address in your own wallet before publishing; its format alone does not prove ownership.</p><div class="notice">This page does not automatically verify transactions, calculate a live BTC exchange rate, or mark an order as paid. Confirm payment in your wallet/block explorer and wait for suitable confirmations before delivering an order.</div></div>
+</div></section>
+<section><div class="panel"><h3>Need help?</h3><p class="muted">Contact the store through Telegram for product questions or order support.</p><a class="btn secondary" href="https://t.me/+wQmRbVzrmqFkYWE0" target="_blank" rel="noopener noreferrer">Contact NEAStore_ on Telegram</a></div></section>
+</main><footer><div class="wrap"><strong>NEAStore_</strong> · Prices are illustrative. Only list products and services you own or are authorized to sell. This static page is not a bank, payment processor, or automated checkout backend.</div></footer>
 <script>
-const search=document.getElementById('search');
-const category=document.getElementById('category');
-const sort=document.getElementById('sort');
-const grid=document.getElementById('products');
-function updateProducts(){
-  const cards=Array.from(grid.querySelectorAll('.card'));
-  const q=search.value.toLowerCase().trim();
-  cards.forEach(card=>{card.hidden=!(card.dataset.name.toLowerCase().includes(q)&&(category.value==='all'||card.dataset.category===category.value));});
-  const visible=cards.filter(card=>!card.hidden);
-  if(sort.value==='low') visible.sort((a,b)=>Number(a.dataset.price)-Number(b.dataset.price));
-  if(sort.value==='high') visible.sort((a,b)=>Number(b.dataset.price)-Number(a.dataset.price));
-  visible.forEach(card=>grid.appendChild(card));
-}
-function showMessage(feature){alert(feature+' is not connected yet. Contact the store team for assistance.');}
-search.addEventListener('input',updateProducts);
-category.addEventListener('change',updateProducts);
-sort.addEventListener('change',updateProducts);
-document.getElementById('year').textContent=new Date().getFullYear();
-</script>
-</body>
-</html>
+function chooseItem(name,price){document.getElementById('product').value=name;document.getElementById('amount').value=price.toFixed(2);document.getElementById('payments').scrollIntoView({behavior:'smooth'});document.getElementById('feedback').textContent='Selected '+name+'. Verify the transaction before fulfilment.'}
+async function copyText(value){try{await navigator.clipboard.writeText(value);return true}catch(e){const ta=document.createElement('textarea');ta.value=value;document.body.appendChild(ta);ta.select();let ok=false;try{ok=document.execCommand('copy')}catch(err){}ta.remove();return ok}}
+async function copyAddress(){const ok=await copyText(document.getElementById('btc').textContent.trim());document.getElementById('feedback').textContent=ok?'BTC address copied. Verify the address in your wallet before sending.':'Copy failed — select and copy the address manually.'}
+async function copyOrder(){const details='NEAStore_ order: '+document.getElementById('product').value+' | USD amount: $'+document.getElementById('amount').value+' | BTC address: '+document.getElementById('btc').textContent.trim()+' | TXID: '+(document.getElementById('txid').value.trim()||'not supplied');const ok=await copyText(details);document.getElementById('feedback').textContent=ok?'Order details copied. Payment is not verified by this page.':'Copy failed — select the order details manually.'}
+</script></body></html>
