@@ -1,30 +1,170 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NEAStore_</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b12">
+<title>NEAStore_ | Premium Shopping</title>
 <style>
-body{margin:0;background:#080d19;color:white;font-family:Arial;padding:20px}
-.card{background:#111a2d;border:1px solid #273650;border-radius:12px;padding:15px;margin-bottom:15px}
-.price{color:#70bdff;font-weight:bold;font-size:20px}
-.btn{display:block;background:#398fff;color:white;text-align:center;padding:12px;border-radius:8px;text-decoration:none;font-weight:bold;margin-top:10px}
+*{box-sizing:border-box}
+body{margin:0;background:#080b12;color:#f5f7ff;font-family:Arial,sans-serif}
+a{text-decoration:none;color:inherit}
+header{padding:20px 6%;border-bottom:1px solid #253047;background:#0b101b}
+nav{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:25px;font-weight:900}.logo span,h1 span{color:#66aaff}
+nav a:last-child{color:#66aaff}
+main{max-width:1100px;margin:auto;padding:24px}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:25px;padding:55px 0}
+.eyebrow{color:#66aaff;letter-spacing:3px;font-size:12px}
+h1{font-size:clamp(40px,7vw,65px);line-height:1.05;margin:18px 0}
+p{color:#aab7cc;line-height:1.7}
+.art{background:linear-gradient(145deg,#1b3455,#111827);border:1px solid #304664;border-radius:24px;padding:45px 10px;text-align:center;font-size:75px}
+.art h2{font-size:20px}
+.btn{display:inline-block;background:#66aaff;color:#07111f;padding:13px 17px;border-radius:10px;font-weight:bold;margin:8px 5px 0 0;border:0;cursor:pointer}
+.secondary{background:#172338;color:white;border:1px solid #30405a}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0 55px}
+.benefit,.card{background:#111827;border:1px solid #253047;border-radius:15px;padding:18px}
+.benefit p{font-size:13px;margin-bottom:0}
+.head{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+input{background:#111827;color:white;border:1px solid #30405a;border-radius:10px;padding:13px;max-width:100%}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
+.filter{background:#172338;color:white;border:1px solid #30405a;padding:10px 15px;border-radius:25px;cursor:pointer}
+.filter.active{background:#66aaff;color:#07111f}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card[hidden]{display:none}
+.pic{background:linear-gradient(140deg,#1b2c45,#101827);border-radius:10px;text-align:center;padding:28px;font-size:48px}
+.tag{font-size:11px;color:#66aaff;text-transform:uppercase;letter-spacing:2px;margin-top:15px}
+.card h3{margin:9px 0}
+.price{font-size:23px;font-weight:bold;color:#72b7ff;margin:15px 0}
+.card .btn{display:block;text-align:center;margin:0}
+.contact{margin:55px 0 10px;text-align:center;padding:32px 18px;background:#111d30;border:1px solid #304664;border-radius:20px}
+footer{text-align:center;border-top:1px solid #253047;padding:25px;color:#8492a8;font-size:12px}
+@media(max-width:700px){
+ .hero{grid-template-columns:1fr;padding:35px 0}
+ .art{padding:25px;font-size:60px}
+ .benefits{grid-template-columns:1fr;margin-bottom:40px}
+ .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .card{padding:11px}
+ .pic{padding:22px 5px}
+ .card .btn{font-size:12px;padding:12px 4px}
+}
+@media(max-width:370px){.products{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<h1 style="color:#67b5ff">NEAStore_</h1>
-<p>YOUR STYLE. YOUR CHOICE.</p>
-<h2>Our Bags - Click Order Now to Buy</h2>
+<header>
+<nav>
+<a href="#" class="logo">NEA<span>Store_</span></a>
+<a href="#shop">SHOP NOW ↗</a>
+</nav>
+</header>
 
-<div class="card"><p>Bag - Durable</p><div class="price">$50</div><a class="btn" href="https://t.me/+wQmRbVzrmqFkYWE0">Order Now - $50</a></div>
-<div class="card"><p>Bag - Durable</p><div class="price">$65</div><a class="btn" href="https://t.me/+wQmRbVzrmqFkYWE0">Order Now - $65</a></div>
-<div class="card"><p>Bag - Durable</p><div class="price">$70</div><a class="btn" href="https://t.me/+wQmRbVzrmqFkYWE0">Order Now - $70</a></div>
-<div class="card"><p>Bag - Durable</p><div class="price">$80</div><a class="btn" href="https://t.me/+wQmRbVzrmqFkYWE0">Order Now - $80</a></div>
-<div class="card"><p>Bag - Durable</p><div class="price">$90</div><a class="btn" href="https://t.me/+wQmRbVzrmqFkYWE0">Order Now - $90</a></div>
-<div class="card"><p>Bag - Durable</p><div class="price">$110</div><a class="btn" href="https://t.me/+wQmRbVzrmqFkYWE0">Order Now - $110</a></div>
-<div class="card"><p>Bag - Durable</p><div class="price">$165</div><a class="btn" href="https://t.me/+wQmRbVzrmqFkYWE0">Order Now - $165</a></div>
-<div class="card"><p>Premium Bag</p><div class="price">$200</div><a class="btn" href="https://t.me/+wQmRbVzrmqFkYWE0">Order Now - $200</a></div>
-<div class="card"><p>Premium Bag</p><div class="price">$350</div><a class="btn" href="https://t.me/+wQmRbVzrmqFkYWE0">Order Now - $350</a></div>
+<main>
+<section class="hero">
+<div>
+<div class="eyebrow">WELCOME TO NEASTORE_</div>
+<h1>Discover more.<br>Shop <span>better.</span></h1>
+<p>Your next favourite find is waiting for you. Explore our store and contact us to place an order.</p>
+<a class="btn" href="#shop">Explore Products ↓</a>
+<a class="btn secondary" href="#contact">Contact Us</a>
+</div>
+<div class="art">🛍️<h2>THE NEA EXPERIENCE</h2><p>A fresh way to shop online.</p></div>
+</section>
 
+<section class="benefits">
+<div class="benefit"><b>✨ Curated Finds</b><p>Discover products from our store.</p></div>
+<div class="benefit"><b>💬 Easy Ordering</b><p>Contact us directly to order.</p></div>
+<div class="benefit"><b>💵 USD Pricing</b><p>Prices displayed in US dollars.</p></div>
+</section>
+
+<section id="shop">
+<div class="head">
+<div><h2>Explore the Store</h2><p>Find something you love.</p></div>
+<input id="search" placeholder="Search products..." aria-label="Search products">
+</div>
+
+<div class="filters">
+<button class="filter active" data-filter="all">All</button>
+<button class="filter" data-filter="featured">Featured</button>
+<button class="filter" data-filter="new">New arrivals</button>
+</div>
+
+<div class="products" id="products">
+<article class="card" data-category="featured">
+<div class="pic">✨</div><div class="tag">Featured</div>
+<h3>Product One</h3><p>Product details coming soon.</p>
+<div class="price">$0.00</div>
+<button class="btn order" data-product="Product One">Order Now</button>
+</article>
+
+<article class="card" data-category="new">
+<div class="pic">🎁</div><div class="tag">New arrival</div>
+<h3>Product Two</h3><p>Product details coming soon.</p>
+<div class="price">$0.00</div>
+<button class="btn order" data-product="Product Two">Order Now</button>
+</article>
+
+<article class="card" data-category="featured">
+<div class="pic">🌟</div><div class="tag">Featured</div>
+<h3>Product Three</h3><p>Product details coming soon.</p>
+<div class="price">$0.00</div>
+<button class="btn order" data-product="Product Three">Order Now</button>
+</article>
+</div>
+<p id="empty" hidden>No matching products found.</p>
+</section>
+
+<section class="contact" id="contact">
+<h2>Ready to place an order?</h2>
+<p>Message NEAStore_ to confirm product availability, USD price, delivery and payment instructions.</p>
+<a class="btn" id="whatsapp" href="https://wa.me/YOURNUMBER">Order on WhatsApp</a>
+<a class="btn secondary" id="telegram" href="https://t.me/YOURTELEGRAM">Message on Telegram</a>
+</section>
+</main>
+
+<footer>© <span id="year"></span> NEAStore_ · All rights reserved<br>Prices shown in USD. Orders confirmed directly with the store.</footer>
+
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+
+let category="all";
+const search=document.getElementById("search");
+const cards=[...document.querySelectorAll(".card[data-category]")];
+
+function filterProducts(){
+ let count=0;
+ cards.forEach(card=>{
+  const categoryMatch=category==="all"||card.dataset.category===category;
+  const textMatch=card.innerText.toLowerCase().includes(search.value.toLowerCase());
+  card.hidden=!(categoryMatch&&textMatch);
+  if(!card.hidden)count++;
+ });
+ document.getElementById("empty").hidden=count>0;
+}
+search.addEventListener("input",filterProducts);
+
+document.querySelectorAll(".filter").forEach(button=>{
+ button.addEventListener("click",()=>{
+  document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
+  button.classList.add("active");
+  category=button.dataset.filter;
+  filterProducts();
+ });
+});
+
+document.querySelectorAll(".order").forEach(button=>{
+ button.addEventListener("click",()=>{
+  const number="YOURNUMBER";
+  const product=button.dataset.product;
+  if(number==="YOURNUMBER"){
+   alert("NEAStore_ contact details are not set up yet. Please check back soon.");
+   return;
+  }
+  const message=encodeURIComponent("Hello NEAStore_! I am interested in "+product+". Please confirm the USD price, availability, delivery and payment instructions.");
+  window.open("https://wa.me/"+number+"?text="+message,"_blank");
+ });
+});
+</script>
 </body>
 </html>
