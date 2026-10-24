@@ -12,7 +12,7 @@ main{padding:34px 0 55px}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap
 <header class="wrap top"><div><div class="brand">NEA<span>Store_</span></div><div class="tag">Digital goods & authorized services</div></div><span class="pill">USD · BTC option</span></header>
 <main class="wrap">
 <section id="access" class="auth panel">
-<h2>Access NEAStore_</h2><p class="sub">Create access or sign in to view the store.</p>
+<h2>Sign in to NEAStore_ to shop</h2><p class="sub">Create a demo account, or sign in to enter the store.</p>
 <div class="notice">Prototype access only: this static GitHub Pages version does not provide secure real accounts. Do not use a real password here. Secure accounts need an authentication backend.</div>
 <div class="tabs" style="margin-top:16px"><button class="btn" id="signupTab" onclick="showAuth('signup')">Create access</button><button class="btn secondary" id="loginTab" onclick="showAuth('login')">Sign in</button></div>
 <form id="authForm" onsubmit="event.preventDefault();authSubmit()">
@@ -22,36 +22,136 @@ main{padding:34px 0 55px}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap
 <p class="small">Demo access is saved only in this browser and can be bypassed. It is not suitable for real customer accounts or private information.</p><p id="authStatus" class="status" aria-live="polite"></p>
 </form></section>
 <div id="store" class="hide">
-<section class="hero"><div><div class="eyebrow">WELCOME TO YOUR STORE</div><h1>Digital essentials.<br>Simple checkout.</h1><p>Browse example listings for legitimate digital products and authorized services. Prices are shown in US dollars.</p><div class="actions"><a href="#catalog" class="btn" style="text-decoration:none">Browse items</a><button class="btn secondary" onclick="logout()">Sign out</button></div></div><div class="panel"><div style="font-size:2.5rem;color:var(--cyan)">₿</div><h3>Bitcoin checkout</h3><p class="muted">Choose an item, then open payment instructions. Payment is not automatically verified by this page.</p></div></section>
+<section class="hero"><div><div class="eyebrow">WELCOME TO YOUR STORE</div><h1>Digital essentials.<br>Simple checkout.</h1><p>Browse example listings for legitimate digital products and authorized services. Prices are shown in US dollars.</p><div class="actions"><a href="#catalog" class="btn" style="text-decoration:none">Browse items</a><a href="#cart" class="btn secondary" style="text-decoration:none">My cart (<span id="cartCountTop">0</span>)</a><button class="btn secondary" onclick="logout()">Sign out</button></div></div><div class="panel"><div style="font-size:2.5rem;color:var(--cyan)">₿</div><h3>Bitcoin checkout</h3><p class="muted">Choose an item, then open payment instructions. Payment is not automatically verified by this page.</p></div></section>
 <section id="catalog"><h2>Catalogue</h2><p class="sub">Replace examples with products you own or are authorized to sell.</p><div class="grid">
-<article class="item"><div class="ico">📘</div><h3>Digital Study Guide</h3><p>Original downloadable learning material.</p><div class="price">$9.00</div><button class="btn" onclick="openPayment('Digital Study Guide',9)">Buy / payment options</button></article>
-<article class="item"><div class="ico">🎨</div><h3>Design Template Pack</h3><p>Original templates and design assets.</p><div class="price">$15.00</div><button class="btn" onclick="openPayment('Design Template Pack',15)">Buy / payment options</button></article>
-<article class="item"><div class="ico">🧩</div><h3>Authorized Digital Service</h3><p>A lawful service or product supplied by its rightful owner.</p><div class="price">$20.00</div><button class="btn" onclick="openPayment('Authorized Digital Service',20)">Buy / payment options</button></article>
+<article class="item"><div class="ico">📘</div><h3>Digital Study Guide</h3><p>Original downloadable learning material.</p><div class="price">$9.00</div><button class="btn" onclick="addToCart('Digital Study Guide',9)">Add to cart</button></article>
+<article class="item"><div class="ico">🎨</div><h3>Design Template Pack</h3><p>Original templates and design assets.</p><div class="price">$15.00</div><button class="btn" onclick="addToCart('Design Template Pack',15)">Add to cart</button></article>
+<article class="item"><div class="ico">🧩</div><h3>Authorized Digital Service</h3><p>A lawful service or product supplied by its rightful owner.</p><div class="price">$20.00</div><button class="btn" onclick="addToCart('Authorized Digital Service',20)">Add to cart</button></article>
 </div></section>
-<section id="payment" class="paybox panel hide"><h2>Payment instructions</h2><p class="sub">Selected order: <strong id="chosenProduct"></strong> · <strong id="chosenPrice"></strong></p>
-<div class="notice">This is manual BTC checkout, not an automated payment gateway. The price is in USD; check the current BTC equivalent in your own wallet before sending. Never send more than the seller's confirmed amount.</div>
+<section id="cart" class="panel" style="margin-top:22px"><h2>Your cart (<span id="cartCount">0</span>)</h2><p class="sub">Add more than one item, change quantities, then continue to checkout.</p><div id="cartItems" class="sub">Your cart is empty.</div><div class="actions" style="margin-top:14px;align-items:center"><strong id="cartTotal">Total: $0.00</strong><button class="btn" id="checkoutBtn" onclick="checkoutCart()" disabled>Continue to payment</button><button class="btn secondary" onclick="clearCart()">Clear cart</button></div><p id="cartStatus" class="status" aria-live="polite"></p></section>
+<section id="payment" class="paybox panel hide"><h2>Payment instructions</h2><p class="sub">Order summary: <strong id="chosenProduct"></strong> · <strong id="chosenPrice"></strong></p>
+<div class="notice">This is manual BTC checkout, not an automated payment gateway. Your order total is shown in USD. Before sending, confirm the exact BTC amount with the seller using a trusted wallet/exchange rate. This page does not accept bank cards or process card payments.</div>
 <h3 style="margin-top:18px">BTC receiving address</h3><div class="address" id="btcAddress">bc1qksl6yyus0q8ykglsrpeld52xjhvtlj95ranylc</div><div class="actions" style="margin-top:10px"><button class="btn" onclick="copyBTC()">Copy BTC address</button><a class="btn secondary" href="https://mempool.space/" target="_blank" rel="noopener">Open block explorer</a></div>
+<p class="notice" style="margin-top:14px">Card payments are not enabled on this demo site. To accept cards, the store owner must set up a supported payment provider and connect it securely; do not enter card details on this page.</p>
 <div class="field"><label for="txid">Transaction ID (after you pay)</label><input id="txid" placeholder="Paste transaction ID here (optional)"></div><div class="actions"><button class="btn" onclick="copyOrder()">Copy order details</button><button class="btn secondary" onclick="closePayment()">Close payment panel</button></div><p id="paymentStatus" class="status" aria-live="polite"></p><p class="small">The store owner must independently verify the transaction and required confirmations before delivering anything. This page cannot detect or confirm payment automatically.</p></section>
 <section class="panel"><h3>Support</h3><p class="muted">Contact the store through Telegram for product or order questions.</p><a class="btn secondary" href="https://t.me/+wQmRbVzrmqFkYWE0" target="_blank" rel="noopener" style="text-decoration:none">Contact NEAStore_ on Telegram</a></section>
 </div>
-</main><footer><div class="wrap">NEAStore_ · Static website prototype. No bank connection, real customer authentication, card processing, or automatic BTC verification is active.</div></footer>
+</main><footer><div class="wrap">NEAStore_ · Static website prototype. Demo sign-in only. No bank connection, card processing, or automatic BTC verification is active.</div></footer>
 <script>
-let authMode='signup', selectedName='Digital Study Guide', selectedPrice=9;
-function showAuth(mode){authMode=mode;document.getElementById('signupTab').className=mode==='signup'?'btn':'btn secondary';document.getElementById('loginTab').className=mode==='login'?'btn':'btn secondary';document.getElementById('authSubmit').textContent=mode==='signup'?'Create demo access':'Sign in';document.getElementById('authStatus').textContent='';}
-function authSubmit(){
- const email=document.getElementById('email').value.trim().toLowerCase(), pass=document.getElementById('password').value;
- if(!email||pass.length<6){document.getElementById('authStatus').textContent='Enter an email and at least 6 characters for this demo.';return}
- // Demo-only: do not store or validate passwords; never use for real credentials.
- const key='neastore_demo_email';
- if(authMode==='signup'){localStorage.setItem(key,email);document.getElementById('authStatus').textContent='Demo access created in this browser.';enterStore()}
- else if(localStorage.getItem(key)===email){document.getElementById('authStatus').textContent='Signed in to demo store.';enterStore()}
- else{document.getElementById('authStatus').textContent='No demo access for this email in this browser. Create access first.'}
+let authMode='signup';
+let cart=[];
+const btcAddress='bc1qksl6yyus0q8ykglsrpeld52xjhvtlj95ranylc';
+
+function showAuth(mode){
+ authMode=mode;
+ document.getElementById('signupTab').className=mode==='signup'?'btn':'btn secondary';
+ document.getElementById('loginTab').className=mode==='login'?'btn':'btn secondary';
+ document.getElementById('authSubmit').textContent=mode==='signup'?'Create demo access':'Sign in to shop';
+ document.getElementById('authStatus').textContent='';
+ document.getElementById('password').setAttribute('autocomplete','off');
 }
-function enterStore(){document.getElementById('access').classList.add('hide');document.getElementById('store').classList.remove('hide');window.scrollTo({top:0,behavior:'smooth'})}
-function logout(){document.getElementById('store').classList.add('hide');document.getElementById('access').classList.remove('hide');document.getElementById('password').value='';window.scrollTo({top:0,behavior:'smooth'})}
-function openPayment(name,price){selectedName=name;selectedPrice=price;document.getElementById('chosenProduct').textContent=name;document.getElementById('chosenPrice').textContent='$'+price.toFixed(2);document.getElementById('payment').classList.remove('hide');document.getElementById('paymentStatus').textContent='Payment instructions opened for '+name+'.';document.getElementById('payment').scrollIntoView({behavior:'smooth',block:'start'})}
+function authSubmit(){
+ const email=document.getElementById('email').value.trim().toLowerCase();
+ const pass=document.getElementById('password').value;
+ const status=document.getElementById('authStatus');
+ if(!email||pass.length<6){status.textContent='Enter your email and a made-up demo password of at least 6 characters.';return}
+ const key='neastore_demo_email';
+ if(authMode==='signup'){
+  localStorage.setItem(key,email);
+  status.textContent='Demo access created. Opening the shop…';
+  enterStore();
+ }else if(localStorage.getItem(key)===email){
+  status.textContent='Signed in to the demo shop.';
+  enterStore();
+ }else{
+  status.textContent='No demo account found for this email in this browser. Choose Create access first.';
+ }
+}
+function enterStore(){
+ document.getElementById('access').classList.add('hide');
+ document.getElementById('store').classList.remove('hide');
+ renderCart();
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function logout(){
+ document.getElementById('store').classList.add('hide');
+ document.getElementById('access').classList.remove('hide');
+ document.getElementById('password').value='';
+ showAuth('login');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function addToCart(name,price){
+ const existing=cart.find(item=>item.name===name);
+ if(existing) existing.qty+=1;
+ else cart.push({name,price,qty:1});
+ renderCart();
+ document.getElementById('cartStatus').textContent=name+' added to your cart.';
+}
+function changeQty(name,delta){
+ const item=cart.find(item=>item.name===name);
+ if(!item)return;
+ item.qty+=delta;
+ if(item.qty<=0)cart=cart.filter(item=>item.name!==name);
+ renderCart();
+}
+function clearCart(){
+ cart=[];
+ renderCart();
+ document.getElementById('payment').classList.add('hide');
+ document.getElementById('cartStatus').textContent='Cart cleared.';
+}
+function renderCart(){
+ const count=cart.reduce((sum,item)=>sum+item.qty,0);
+ const total=cart.reduce((sum,item)=>sum+item.price*item.qty,0);
+ document.getElementById('cartCount').textContent=count;
+ document.getElementById('cartCountTop').textContent=count;
+ document.getElementById('cartTotal').textContent='Total: $'+total.toFixed(2);
+ document.getElementById('checkoutBtn').disabled=count===0;
+ const target=document.getElementById('cartItems');
+ if(!cart.length){target.textContent='Your cart is empty.';return}
+ target.innerHTML='';
+ cart.forEach(item=>{
+  const row=document.createElement('div');
+  row.style.cssText='display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 0;border-bottom:1px solid var(--line)';
+  const label=document.createElement('div');
+  label.textContent=item.name+' — $'+item.price.toFixed(2)+' each';
+  const controls=document.createElement('div');
+  controls.className='actions';
+  const minus=document.createElement('button');minus.className='btn secondary';minus.textContent='−';minus.setAttribute('aria-label','Decrease '+item.name+' quantity');minus.onclick=()=>changeQty(item.name,-1);
+  const qty=document.createElement('strong');qty.textContent='Qty: '+item.qty;
+  const plus=document.createElement('button');plus.className='btn secondary';plus.textContent='+';plus.setAttribute('aria-label','Increase '+item.name+' quantity');plus.onclick=()=>changeQty(item.name,1);
+  controls.append(minus,qty,plus);
+  row.append(label,controls);target.appendChild(row);
+ });
+}
+function checkoutCart(){
+ if(!cart.length){document.getElementById('cartStatus').textContent='Add an item before checkout.';return}
+ const total=cart.reduce((sum,item)=>sum+item.price*item.qty,0);
+ document.getElementById('chosenProduct').textContent=cart.map(item=>item.name+' × '+item.qty).join(', ');
+ document.getElementById('chosenPrice').textContent='$'+total.toFixed(2);
+ document.getElementById('payment').classList.remove('hide');
+ document.getElementById('paymentStatus').textContent='Order summary ready. This page does not automatically take or verify payment.';
+ document.getElementById('payment').scrollIntoView({behavior:'smooth',block:'start'});
+}
 function closePayment(){document.getElementById('payment').classList.add('hide')}
-async function copyText(text){try{await navigator.clipboard.writeText(text);return true}catch(e){const el=document.createElement('textarea');el.value=text;document.body.appendChild(el);el.select();let ok=false;try{ok=document.execCommand('copy')}catch(err){}el.remove();return ok}}
-async function copyBTC(){const ok=await copyText(document.getElementById('btcAddress').textContent.trim());document.getElementById('paymentStatus').textContent=ok?'BTC address copied. Confirm it in your wallet before sending.':'Copy failed. Select the address and copy it manually.'}
-async function copyOrder(){const tx=document.getElementById('txid').value.trim()||'not supplied';const msg='NEAStore_ order: '+selectedName+' | Price: $'+selectedPrice.toFixed(2)+' | BTC address: '+document.getElementById('btcAddress').textContent.trim()+' | Transaction ID: '+tx;const ok=await copyText(msg);document.getElementById('paymentStatus').textContent=ok?'Order details copied. This does not confirm payment.':'Copy failed. Copy the order details manually.'}
+async function copyText(text){
+ try{await navigator.clipboard.writeText(text);return true}
+ catch(e){
+  const el=document.createElement('textarea');el.value=text;document.body.appendChild(el);el.select();
+  let ok=false;try{ok=document.execCommand('copy')}catch(err){}
+  el.remove();return ok;
+ }
+}
+async function copyBTC(){
+ const ok=await copyText(btcAddress);
+ document.getElementById('paymentStatus').textContent=ok?'BTC address copied. Double-check the address in your wallet before sending.':'Copy failed. Press and hold the address to copy it manually.';
+}
+async function copyOrder(){
+ const tx=document.getElementById('txid').value.trim()||'not supplied';
+ const items=cart.map(item=>item.name+' x '+item.qty+' ($'+(item.price*item.qty).toFixed(2)+')').join('; ');
+ const total=cart.reduce((sum,item)=>sum+item.price*item.qty,0);
+ const msg='NEAStore_ order: '+items+' | Total: $'+total.toFixed(2)+' | BTC address: '+btcAddress+' | Transaction ID: '+tx;
+ const ok=await copyText(msg);
+ document.getElementById('paymentStatus').textContent=ok?'Order details copied. This does not confirm payment.':'Copy failed. Please copy the order summary manually.';
+}
 </script></body></html>
