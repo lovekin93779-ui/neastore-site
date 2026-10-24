@@ -2,169 +2,354 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#080b12">
-<title>NEAStore_ | Premium Shopping</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;background:#080b12;color:#f5f7ff;font-family:Arial,sans-serif}
-a{text-decoration:none;color:inherit}
-header{padding:20px 6%;border-bottom:1px solid #253047;background:#0b101b}
-nav{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:25px;font-weight:900}.logo span,h1 span{color:#66aaff}
-nav a:last-child{color:#66aaff}
-main{max-width:1100px;margin:auto;padding:24px}
-.hero{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:25px;padding:55px 0}
-.eyebrow{color:#66aaff;letter-spacing:3px;font-size:12px}
-h1{font-size:clamp(40px,7vw,65px);line-height:1.05;margin:18px 0}
-p{color:#aab7cc;line-height:1.7}
-.art{background:linear-gradient(145deg,#1b3455,#111827);border:1px solid #304664;border-radius:24px;padding:45px 10px;text-align:center;font-size:75px}
-.art h2{font-size:20px}
-.btn{display:inline-block;background:#66aaff;color:#07111f;padding:13px 17px;border-radius:10px;font-weight:bold;margin:8px 5px 0 0;border:0;cursor:pointer}
-.secondary{background:#172338;color:white;border:1px solid #30405a}
-.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0 55px}
-.benefit,.card{background:#111827;border:1px solid #253047;border-radius:15px;padding:18px}
-.benefit p{font-size:13px;margin-bottom:0}
-.head{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
-input{background:#111827;color:white;border:1px solid #30405a;border-radius:10px;padding:13px;max-width:100%}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
-.filter{background:#172338;color:white;border:1px solid #30405a;padding:10px 15px;border-radius:25px;cursor:pointer}
-.filter.active{background:#66aaff;color:#07111f}
-.products{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card[hidden]{display:none}
-.pic{background:linear-gradient(140deg,#1b2c45,#101827);border-radius:10px;text-align:center;padding:28px;font-size:48px}
-.tag{font-size:11px;color:#66aaff;text-transform:uppercase;letter-spacing:2px;margin-top:15px}
-.card h3{margin:9px 0}
-.price{font-size:23px;font-weight:bold;color:#72b7ff;margin:15px 0}
-.card .btn{display:block;text-align:center;margin:0}
-.contact{margin:55px 0 10px;text-align:center;padding:32px 18px;background:#111d30;border:1px solid #304664;border-radius:20px}
-footer{text-align:center;border-top:1px solid #253047;padding:25px;color:#8492a8;font-size:12px}
-@media(max-width:700px){
- .hero{grid-template-columns:1fr;padding:35px 0}
- .art{padding:25px;font-size:60px}
- .benefits{grid-template-columns:1fr;margin-bottom:40px}
- .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
- .card{padding:11px}
- .pic{padding:22px 5px}
- .card .btn{font-size:12px;padding:12px 4px}
-}
-@media(max-width:370px){.products{grid-template-columns:1fr}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEAStore_ | Premium Demo Store</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #070b14;
+      color: #f4f7ff;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 7%;
+      background: #0d1424;
+      border-bottom: 1px solid #1b2940;
+    }
+
+    .logo {
+      color: #64a7ff;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .tag {
+      color: #9eacc3;
+      font-size: 12px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 75px 20px 55px;
+      background: radial-gradient(ellipse at top, #173763, #070b14 70%);
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px solid #31598b;
+      border-radius: 30px;
+      color: #8ec3ff;
+      font-size: 12px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(34px, 7vw, 58px);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    h1 span {
+      color: #64a7ff;
+    }
+
+    .hero p {
+      max-width: 530px;
+      margin: auto;
+      color: #aab7cc;
+    }
+
+    .container {
+      width: min(1050px, 90%);
+      margin: 40px auto;
+    }
+
+    .notice {
+      background: #111b2d;
+      border: 1px solid #243954;
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      color: #c5d7ef;
+      font-size: 13px;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+
+    input, select {
+      background: #10192a;
+      border: 1px solid #263650;
+      border-radius: 9px;
+      color: white;
+      padding: 13px;
+      font-size: 14px;
+    }
+
+    input {
+      flex: 1;
+      min-width: 180px;
+    }
+
+    select {
+      min-width: 140px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #0d1524;
+      border: 1px solid #1e2d43;
+      border-radius: 15px;
+      padding: 23px;
+      transition: .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #4e8edc;
+    }
+
+    .icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      background: #172c49;
+      border-radius: 12px;
+      font-size: 23px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: #9eacc3;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .price {
+      color: #76b2ff;
+      font-size: 27px;
+      font-weight: 800;
+      margin-bottom: 17px;
+    }
+
+    .btn {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      background: #347fe0;
+      border: none;
+      border-radius: 9px;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .btn:hover {
+      background: #4a91f0;
+    }
+
+    .contact {
+      text-align: center;
+      margin: 55px 0;
+      padding: 30px 20px;
+      background: #0d1524;
+      border: 1px solid #1e2d43;
+      border-radius: 15px;
+    }
+
+    .contact p {
+      color: #aab7cc;
+      margin: 10px 0 20px;
+    }
+
+    footer {
+      text-align: center;
+      color: #73829a;
+      padding: 25px;
+      border-top: 1px solid #1b2940;
+      font-size: 12px;
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 17px 5%;
+      }
+
+      .container {
+        width: 92%;
+      }
+
+      .hero {
+        padding-top: 55px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header>
-<nav>
-<a href="#" class="logo">NEA<span>Store_</span></a>
-<a href="#shop">SHOP NOW ↗</a>
-</nav>
-</header>
+  <header>
+    <div class="logo">NEAStore_</div>
+    <div class="tag">PREMIUM DEMO STORE</div>
+  </header>
 
-<main>
-<section class="hero">
-<div>
-<div class="eyebrow">WELCOME TO NEASTORE_</div>
-<h1>Discover more.<br>Shop <span>better.</span></h1>
-<p>Your next favourite find is waiting for you. Explore our store and contact us to place an order.</p>
-<a class="btn" href="#shop">Explore Products ↓</a>
-<a class="btn secondary" href="#contact">Contact Us</a>
-</div>
-<div class="art">🛍️<h2>THE NEA EXPERIENCE</h2><p>A fresh way to shop online.</p></div>
-</section>
+  <section class="hero">
+    <div class="pill">✦ WELCOME TO NEASTORE_</div>
+    <h1>Discover Something<br><span>Different.</span></h1>
+    <p>
+      Explore our demo collection in a clean, premium shopping
+      experience built for mobile and desktop.
+    </p>
+  </section>
 
-<section class="benefits">
-<div class="benefit"><b>✨ Curated Finds</b><p>Discover products from our store.</p></div>
-<div class="benefit"><b>💬 Easy Ordering</b><p>Contact us directly to order.</p></div>
-<div class="benefit"><b>💵 USD Pricing</b><p>Prices displayed in US dollars.</p></div>
-</section>
+  <main class="container">
+    <div class="notice">
+      <strong>DEMO MODE:</strong>
+      All balances and prices below are fictional examples.
+      No real cards, financial accounts, or transactions are available.
+    </div>
 
-<section id="shop">
-<div class="head">
-<div><h2>Explore the Store</h2><p>Find something you love.</p></div>
-<input id="search" placeholder="Search products..." aria-label="Search products">
-</div>
+    <div class="toolbar">
+      <input
+        id="search"
+        type="search"
+        placeholder="Search demo products..."
+        aria-label="Search demo products"
+      >
 
-<div class="filters">
-<button class="filter active" data-filter="all">All</button>
-<button class="filter" data-filter="featured">Featured</button>
-<button class="filter" data-filter="new">New arrivals</button>
-</div>
+      <select id="sort" aria-label="Sort products">
+        <option value="default">Featured</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+      </select>
+    </div>
 
-<div class="products" id="products">
-<article class="card" data-category="featured">
-<div class="pic">✨</div><div class="tag">Featured</div>
-<h3>Product One</h3><p>Product details coming soon.</p>
-<div class="price">$0.00</div>
-<button class="btn order" data-product="Product One">Order Now</button>
-</article>
+    <div class="grid" id="products">
+      <article class="card" data-price="50">
+        <div class="icon">✦</div>
+        <h3>Demo Package A</h3>
+        <p>Fictional sample package for website testing.</p>
+        <div class="price">$50.00</div>
+        <button class="btn" onclick="demoNotice()">View Demo</button>
+      </article>
 
-<article class="card" data-category="new">
-<div class="pic">🎁</div><div class="tag">New arrival</div>
-<h3>Product Two</h3><p>Product details coming soon.</p>
-<div class="price">$0.00</div>
-<button class="btn order" data-product="Product Two">Order Now</button>
-</article>
+      <article class="card" data-price="65">
+        <div class="icon">◈</div>
+        <h3>Demo Package B</h3>
+        <p>Fictional sample package for website testing.</p>
+        <div class="price">$65.00</div>
+        <button class="btn" onclick="demoNotice()">View Demo</button>
+      </article>
 
-<article class="card" data-category="featured">
-<div class="pic">🌟</div><div class="tag">Featured</div>
-<h3>Product Three</h3><p>Product details coming soon.</p>
-<div class="price">$0.00</div>
-<button class="btn order" data-product="Product Three">Order Now</button>
-</article>
-</div>
-<p id="empty" hidden>No matching products found.</p>
-</section>
+      <article class="card" data-price="80">
+        <div class="icon">⬡</div>
+        <h3>Demo Package C</h3>
+        <p>Fictional sample package for website testing.</p>
+        <div class="price">$80.00</div>
+        <button class="btn" onclick="demoNotice()">View Demo</button>
+      </article>
 
-<section class="contact" id="contact">
-<h2>Ready to place an order?</h2>
-<p>Message NEAStore_ to confirm product availability, USD price, delivery and payment instructions.</p>
-<a class="btn" id="whatsapp" href="https://wa.me/YOURNUMBER">Order on WhatsApp</a>
-<a class="btn secondary" id="telegram" href="https://t.me/YOURTELEGRAM">Message on Telegram</a>
-</section>
-</main>
+      <article class="card" data-price="110">
+        <div class="icon">✧</div>
+        <h3>Demo Package D</h3>
+        <p>Fictional sample package for website testing.</p>
+        <div class="price">$110.00</div>
+        <button class="btn" onclick="demoNotice()">View Demo</button>
+      </article>
 
-<footer>© <span id="year"></span> NEAStore_ · All rights reserved<br>Prices shown in USD. Orders confirmed directly with the store.</footer>
+      <article class="card" data-price="165">
+        <div class="icon">◇</div>
+        <h3>Demo Package E</h3>
+        <p>Fictional sample package for website testing.</p>
+        <div class="price">$165.00</div>
+        <button class="btn" onclick="demoNotice()">View Demo</button>
+      </article>
 
-<script>
-document.getElementById("year").textContent=new Date().getFullYear();
+      <article class="card" data-price="200">
+        <div class="icon">⬢</div>
+        <h3>Demo Package F</h3>
+        <p>Fictional sample package for website testing.</p>
+        <div class="price">$200.00</div>
+        <button class="btn" onclick="demoNotice()">View Demo</button>
+      </article>
+    </div>
 
-let category="all";
-const search=document.getElementById("search");
-const cards=[...document.querySelectorAll(".card[data-category]")];
+    <section class="contact">
+      <h2>Need Help?</h2>
+      <p>Contact information can be added when your legitimate store is ready.</p>
+      <button class="btn" onclick="demoNotice()">Contact Store</button>
+    </section>
+  </main>
 
-function filterProducts(){
- let count=0;
- cards.forEach(card=>{
-  const categoryMatch=category==="all"||card.dataset.category===category;
-  const textMatch=card.innerText.toLowerCase().includes(search.value.toLowerCase());
-  card.hidden=!(categoryMatch&&textMatch);
-  if(!card.hidden)count++;
- });
- document.getElementById("empty").hidden=count>0;
-}
-search.addEventListener("input",filterProducts);
+  <footer>
+    © <span id="year"></span> NEAStore_ · Demo website
+  </footer>
 
-document.querySelectorAll(".filter").forEach(button=>{
- button.addEventListener("click",()=>{
-  document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
-  button.classList.add("active");
-  category=button.dataset.filter;
-  filterProducts();
- });
-});
+  <script>
+    const search = document.getElementById("search");
+    const sort = document.getElementById("sort");
+    const grid = document.getElementById("products");
 
-document.querySelectorAll(".order").forEach(button=>{
- button.addEventListener("click",()=>{
-  const number="YOURNUMBER";
-  const product=button.dataset.product;
-  if(number==="YOURNUMBER"){
-   alert("NEAStore_ contact details are not set up yet. Please check back soon.");
-   return;
-  }
-  const message=encodeURIComponent("Hello NEAStore_! I am interested in "+product+". Please confirm the USD price, availability, delivery and payment instructions.");
-  window.open("https://wa.me/"+number+"?text="+message,"_blank");
- });
-});
-</script>
+    function updateProducts() {
+      const cards = Array.from(grid.querySelectorAll(".card"));
+      const query = search.value.toLowerCase();
+
+      cards.forEach(card => {
+        card.hidden = !card.innerText.toLowerCase().includes(query);
+      });
+
+      const visible = cards.filter(card => !card.hidden);
+
+      if (sort.value === "low") {
+        visible.sort((a, b) =>
+          Number(a.dataset.price) - Number(b.dataset.price)
+        );
+      } else if (sort.value === "high") {
+        visible.sort((a, b) =>
+          Number(b.dataset.price) - Number(a.dataset.price)
+        );
+      }
+
+      visible.forEach(card => grid.appendChild(card));
+    }
+
+    function demoNotice() {
+      alert("NEAStore_ demo mode: no real orders or transactions are processed.");
+    }
+
+    search.addEventListener("input", updateProducts);
+    sort.addEventListener("change", updateProducts);
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 </html>
